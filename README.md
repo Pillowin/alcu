@@ -8,4 +8,6 @@ A rush on algorithms
 - [ ] Display map on stdout
 - [ ] Ask for instruction
 - [ ] AI
+  - [ ] Always takes one
+  - [ ] Smart on last heap
 - [ ] Annonce winner
