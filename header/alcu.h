@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:01:50 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:14:59 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	fill_board(int fd, t_list **board);
 void ai_plays(t_list **board);
 
 // Player
-void player_plays(t_list **board);
+void player_plays(t_list **board, int fd);
 
 // Board
 void board_print(t_list *board);

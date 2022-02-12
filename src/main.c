@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:37 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:07:20 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:17:11 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ int main(int argc, char **argv)
 	if (fd != STDIN_FILENO)
 		close(fd);
 
+	fd = open("/dev/tty", O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putendl_fd(STDERR_FILENO, "Open failed");
+		list_clear(&board);
+		return (EXIT_FAILURE);
+	}
 	board_print(board);
 	while (board)
 	{
@@ -47,7 +54,7 @@ int main(int argc, char **argv)
 			break ;
 		}
 		board_print(board);
-		player_plays(&board);
+		player_plays(&board, fd);
 		if (!board)
 		{
 			ft_putendl_fd(STDOUT_FILENO, "You lost! :(");
@@ -55,7 +62,7 @@ int main(int argc, char **argv)
 		}
 		board_print(board);
 	}
-
+	close(fd);
 	list_clear(&board);
 	return (EXIT_SUCCESS);
 }
