@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:37 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:03:09 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:07:20 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ int main(int argc, char **argv)
 		close(fd);
 
 	board_print(board);
-	while (board)	// main loop
+	while (board)
 	{
-		ai_plays(&board); // AI plays
+		ai_plays(&board);
 		if (!board)
 		{
 			ft_putendl_fd(STDOUT_FILENO, "You are the winner! Congratulations! :)");
 			break ;
 		}
 		board_print(board);
-		player_plays(&board); // Player plays
+		player_plays(&board);
 		if (!board)
 		{
 			ft_putendl_fd(STDOUT_FILENO, "You lost! :(");

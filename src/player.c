@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:16:59 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 18:54:28 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:07:15 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void player_plays(t_list **board)
 	{
 		ft_putendl_fd(STDOUT_FILENO, "Please choose between 1 and 3 items");
 		line = get_next_line(STDIN_FILENO);
-		if (line && ft_strlen(line) == 2  && (line[0] >= '0' && line[0] <= '3')
+		if (line && ft_strlen(line) == 2  && (line[0] > '0' && line[0] <= '3')
 			&& line[1] == '\n' && line[0] <= (heap->nbr + '0'))
 			ask = 0;
 		else

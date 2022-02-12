@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:07:48 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/02/12 19:05:41 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:07:13 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ static int	correct_line(char *line)
 		return (0);
 	i = -1;
 	while (++i < len - 1)
-	{
 		if (line[i] < '0' || line[i] > '9')
 			return (0);
-	}
 	if (line[len - 1] != '\n')
 		return (0);
 	if (len == 1)
