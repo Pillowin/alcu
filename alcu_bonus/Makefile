@@ -3,12 +3,14 @@ I			=	header/
 O			=	obj/
 D			=	dep/
 
-NAME		=	alcu
+NAME		=	alcu_bonus
 
 SRC			=	$(wildcard $S*.c)
 
 OBJ			=	$(SRC:$S%.c=$O%.o)
 DEP			=	$(SRC:$S%.c=$D%.d)
+
+MLX 		=	minilibx-linux/
 
 CC			=	cc
 
@@ -21,7 +23,7 @@ LDFLAGS		+=	-g3 -fsanitize=address
 RM			=	/bin/rm -f
 RMDIR		=	/bin/rm -Rf
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean minilibx re
 
 all: $(NAME)
 
@@ -43,10 +45,14 @@ $(DEP): $D%.d: $S%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -MM -MF $@ -MT "$O$*.o $@" $<
 
+minilibx:
+	make -C $(MLX)
+
 $(NAME): $(OBJ)
 	$(CC) $(LDFLAGS) $(OBJ) -o $@
 
 clean:
+	make -C $(MLX) clean
 	$(RMDIR) $(wildcard $(NAME).dSYM)
 	$(RMDIR) $O
 	$(RM) $(wildcard $(DEP))
