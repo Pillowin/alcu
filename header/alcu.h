@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 13:05:19 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 15:55:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <unistd.h>
 #include <stdio.h> // TODO: remove
-
-#define BUFFER_SIZE 1024
 
 typedef struct s_list t_list;
 
