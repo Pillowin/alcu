@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:41:31 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:42:16 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void board_print(t_list *board)
 			ft_putstr_fd(STDOUT_FILENO, "| ");
 			items -= 1;
 		}
-		ft_putendl_fd(STDOUT_FILENO, "");
+		ft_putendl_fd(STDOUT_FILENO, "\n");
 		board = board->next;
 	}
 }
