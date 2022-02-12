@@ -6,7 +6,7 @@
 #    By: agautier <agautier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/11 21:24:39 by agautier          #+#    #+#              #
-#    Updated: 2022/02/12 00:57:17 by agautier         ###   ########.fr        #
+#    Updated: 2022/02/12 17:00:15 by agautier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ D			=	dep/
 
 NAME		=	alcu
 
-SRC			=	$(wildcard $S/*.c)
+SRC			=	$(wildcard $S*.c)
 
 OBJ			=	$(SRC:$S%.c=$O%.o)
 DEP			=	$(SRC:$S%.c=$D%.d)
