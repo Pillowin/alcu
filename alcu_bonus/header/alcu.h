@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:40:21 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 20:46:40 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include "../minilibx-linux/mlx.h"
 
 typedef struct s_list t_list;
 
@@ -23,6 +24,17 @@ struct s_list
 	int nbr;
 	t_list *next;
 	t_list *prev;
+};
+
+# define WIDTH 1000
+# define HEIGTH 1000
+
+typedef struct s_graph t_graph;
+struct	s_graph
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
 };
 
 // MAP
