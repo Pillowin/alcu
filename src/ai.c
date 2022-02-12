@@ -6,19 +6,17 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:46:12 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 16:59:03 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:01:35 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
 #include <stdbool.h>
-#include <stdlib.h>	// TODO: remove
 
 static int find_winning_play(int item_count, bool must_take_last)
 {
 	int must_take;
 
-	fprintf(stderr, "must_take_last = %s\n", must_take_last ? "true" : "false");
 	if (!must_take_last)
 	{
 		must_take = item_count % 4 - 1;
@@ -83,6 +81,5 @@ void ai_plays(t_list **board)
 
 	if (heap->nbr <= 0)
 		list_pop_back(board);
-	exit(EXIT_FAILURE);
 }
 

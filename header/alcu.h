@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 17:25:58 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:01:50 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#include <stdio.h> // TODO: remove
 
 typedef struct s_list t_list;
 
@@ -26,7 +25,7 @@ struct s_list
 	t_list *prev;
 };
 
-//MAP
+// MAP
 int	fill_board(int fd, t_list **board);
 
 // AI
