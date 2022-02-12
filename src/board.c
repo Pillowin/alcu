@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 13:12:32 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:26:35 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void board_print(t_list *board)
 {
 	int items;
 
+	ft_putendl_fd(STDOUT_FILENO, "");
 	while (board)
 	{
 		items = board->nbr;
