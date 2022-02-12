@@ -5,7 +5,7 @@ D			=	dep/
 
 NAME		=	alcu
 
-SRC			=	$(wildcard $S/*.c)
+SRC			=	$(wildcard $S*.c)
 
 OBJ			=	$(SRC:$S%.c=$O%.o)
 DEP			=	$(SRC:$S%.c=$D%.d)
