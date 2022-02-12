@@ -6,7 +6,7 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:46:12 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 16:59:03 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:27:04 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ void ai_plays(t_list **board)
 
 	if (heap->nbr <= 0)
 		list_pop_back(board);
-	exit(EXIT_FAILURE);
+	//exit(EXIT_FAILURE);
 }
 
