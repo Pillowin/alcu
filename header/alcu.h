@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   alcu.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 15:55:00 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:25:58 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ALCU_H
 
 #include <unistd.h>
+#include <fcntl.h>
 #include <stdio.h> // TODO: remove
 
 typedef struct s_list t_list;
@@ -24,6 +25,9 @@ struct s_list
 	t_list *next;
 	t_list *prev;
 };
+
+//MAP
+int	fill_board(int fd, t_list **board);
 
 // AI
 void ai_plays(t_list **board);

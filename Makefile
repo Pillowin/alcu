@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agautier <agautier@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/11 21:24:39 by agautier          #+#    #+#              #
-#    Updated: 2022/02/12 00:57:17 by agautier         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 S			=	src/
 I			=	header/
 O			=	obj/
@@ -26,9 +14,9 @@ CC			=	cc
 
 CFLAGS		+=	-I$I
 CFLAGS		+=	-Wall -Wextra -Werror
-CFLAGS		+=	-g3 -fsanitize=address
+CFLAGS		+=	-g3 #-fsanitize=address
 
-LDFLAGS		+=	-g3 -fsanitize=address
+LDFLAGS		+=	-g3 #-fsanitize=address
 
 RM			=	/bin/rm -f
 RMDIR		=	/bin/rm -Rf

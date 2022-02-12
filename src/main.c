@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:37 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 13:14:31 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:02:38 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,21 @@
 int main(int argc, char **argv)
 {
 	t_list *board;
-	char *line;
+	int fd;
 
-	board = NULL;
+	fd = STDIN_FILENO;
 	if (argc > 2)
 	{
 		ft_putendl_fd(STDERR_FILENO, "Usage: ./alcu [path_to_map.map]");
 		return (EXIT_FAILURE);
 	}
-	else if (argc == 1)
-	{
-		// listen for map on stdin
-		line = get_next_line(STDIN_FILENO);
-		while (line != NULL)
-		{
-			list_push_back(&board, ft_atoi(line));
-			free(line);
-			line = get_next_line(STDIN_FILENO);
-		}
-	}
 	else if (argc == 2)
-	{
-		// parse argv[1] file
-		(void)argv;
-	}
-
+		fd = open(argv[1], O_RDONLY);
+	if (fill_board(fd, &board) | (fd != STDIN_FILENO ))
+		return (EXIT_FAILURE);
+	char *line = get_next_line(0);
+	(void) line;
+	return 1;
 	//t_list *heap = board;
 	//while (heap)
 	//{
