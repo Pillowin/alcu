@@ -15,10 +15,14 @@ MLX 		=	minilibx-linux/
 CC			=	cc
 
 CFLAGS		+=	-I$I
+CFLAGS		+=	-I$(MLX)
 CFLAGS		+=	-Wall -Wextra -Werror
 CFLAGS		+=	-g3 -fsanitize=address
 
+LDFLAGS		+=	-L$(MLX)
 LDFLAGS		+=	-g3 -fsanitize=address
+
+LIBS		= -lm -lmlx -lXext -lX11
 
 RM			=	/bin/rm -f
 RMDIR		=	/bin/rm -Rf
@@ -48,8 +52,8 @@ $(DEP): $D%.d: $S%.c
 minilibx:
 	make -C $(MLX)
 
-$(NAME): $(OBJ)
-	$(CC) $(LDFLAGS) $(OBJ) -o $@
+$(NAME): minilibx $(OBJ)
+	$(CC) $(LDFLAGS) $(OBJ) -o $@ $(LIBS)
 
 clean:
 	make -C $(MLX) clean
