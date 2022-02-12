@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 20:46:40 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 21:18:37 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ struct s_list
 
 # define WIDTH 1000
 # define HEIGTH 1000
-
+# define COLOR 0xFF0000
 typedef struct s_graph t_graph;
 struct	s_graph
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*img_ptr;
 };
 
 // MAP
@@ -47,7 +46,12 @@ void ai_plays(t_list **board);
 void player_plays(t_list **board, int fd);
 
 // Board
-void board_print(t_list *board);
+void board_print(t_list *board, t_graph *graph, int x_baton, int y_baton);
+
+//GRAPH
+t_graph	*new_graph();
+void	draw_rectangle(t_graph *graph, int x_corner, int y_corner, int x_len, int y_len);
+void	free_graph(t_graph *graph);
 
 // Utils
 size_t ft_strlen(char *str);
@@ -63,5 +67,6 @@ void list_pop_back(t_list **list);
 void list_clear(t_list **list);
 t_list *list_last(t_list *list);
 int	list_max(t_list *list);
+int	ft_lstsize(t_list *lst);
 
 #endif

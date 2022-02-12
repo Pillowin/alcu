@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:37 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:17:11 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 21:29:26 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int main(int argc, char **argv)
 {
 	t_list *board;
 	int fd;
+	t_graph	*graph;
+	int x_baton;
+	int y_baton;
 
 	fd = STDIN_FILENO;
 	if (argc > 2)
@@ -44,7 +47,20 @@ int main(int argc, char **argv)
 		list_clear(&board);
 		return (EXIT_FAILURE);
 	}
-	board_print(board);
+
+	graph = new_graph();
+	if (graph == NULL)
+	{
+		list_clear(&board);
+		return (EXIT_FAILURE);
+	}
+
+	if (board)
+	{
+		x_baton = (WIDTH * 0.9) / (list_max(board) * 2);
+		y_baton = (HEIGTH * 0.9) / ft_lstsize(board);
+		board_print(board, graph, x_baton, y_baton);
+	}
 	while (board)
 	{
 		ai_plays(&board);
@@ -53,16 +69,17 @@ int main(int argc, char **argv)
 			ft_putendl_fd(STDOUT_FILENO, "You are the winner! Congratulations! :)");
 			break ;
 		}
-		board_print(board);
+		//board_print(board, graph);
 		player_plays(&board, fd);
 		if (!board)
 		{
 			ft_putendl_fd(STDOUT_FILENO, "You lost! :(");
 			break ;
 		}
-		board_print(board);
+		//board_print(board, graph);
 	}
 	close(fd);
+	free_graph(graph);
 	list_clear(&board);
 	return (EXIT_SUCCESS);
 }

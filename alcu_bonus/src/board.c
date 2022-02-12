@@ -3,43 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   board.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:42:16 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 21:47:44 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
 
-static void print_spaces(int nb)
-{
-	while (nb)
-	{
-		write(STDOUT_FILENO, " ", 1);
-		nb -= 1;
-	}
-}
-
-void board_print(t_list *board)
+void board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 {
 	int items;
 	int longest_line;
+	int i;
+	int j;
+	int x_corner, y_corner;
 
-	ft_putendl_fd(STDOUT_FILENO, "");
 	longest_line = list_max(board);
+	i = 0;
 	while (board)
 	{
+		y_corner = i * y_baton  + 0.05 * y_baton;
 		items = board->nbr;
-		if (items)
-			ft_putstr_fd(STDOUT_FILENO, " ");
-		print_spaces(longest_line - items);
-		while (items)
+		j = 0;
+		while (j < items)
 		{
-			ft_putstr_fd(STDOUT_FILENO, "| ");
-			items -= 1;
+			x_corner = 2 * j * x_baton + 1.05 * x_baton;
+			draw_rectangle(graph, x_corner, y_corner, x_baton * 0.9, y_baton * 0.9);
+			j++;
 		}
-		ft_putendl_fd(STDOUT_FILENO, "\n");
+		i++;
 		board = board->next;
 	}
 }
