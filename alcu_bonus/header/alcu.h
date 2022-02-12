@@ -6,16 +6,17 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 20:46:40 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 21:27:06 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALCU_H
 #define ALCU_H
 
+#include "mlx.h"
+
 #include <unistd.h>
 #include <fcntl.h>
-#include "../minilibx-linux/mlx.h"
 
 typedef struct s_list t_list;
 
@@ -63,5 +64,8 @@ void list_pop_back(t_list **list);
 void list_clear(t_list **list);
 t_list *list_last(t_list *list);
 int	list_max(t_list *list);
+
+// Mlx
+void event_register(t_graph *graph);
 
 #endif
