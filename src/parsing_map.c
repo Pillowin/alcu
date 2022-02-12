@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:07:48 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/02/12 19:10:50 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:22:47 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	fill_board(int fd, t_list **board)
 		{
 			if (nb == -1)
 				free(line);
+			list_clear(board);
 			ft_putendl_fd(STDERR_FILENO, "ERROR");
 			return (1);
 		}
