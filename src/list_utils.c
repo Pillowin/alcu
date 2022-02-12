@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:04:50 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 12:48:52 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:38:19 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,18 @@ t_list *list_last(t_list *list)
 	while (list && list->next)
 		list = list->next;
 	return (list);
+}
+
+int	list_max(t_list *list)
+{
+	int	max;
+
+	max = 0;
+	while (list)
+	{
+		if (max == 0 || list->nbr > max)
+			max = list->nbr;
+		list = list->next;
+	}
+	return (max);
 }

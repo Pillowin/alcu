@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:14:59 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:40:21 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void list_push_back(t_list **list, int nbr);
 void list_pop_back(t_list **list);
 void list_clear(t_list **list);
 t_list *list_last(t_list *list);
+int	list_max(t_list *list);
 
 #endif
