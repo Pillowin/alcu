@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:37 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 21:49:40 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 23:14:05 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,32 +54,19 @@ int main(int argc, char **argv)
 		list_clear(&board);
 		return (EXIT_FAILURE);
 	}
-
+	graph->board = board;
+	graph->fd = fd;
 	if (board)
 	{
 		x_baton = (WIDTH * 0.9) / (list_max(board) * 2);
 		y_baton = (HEIGTH * 0.9) / ft_lstsize(board);
 		board_print(board, graph, x_baton, y_baton);
 	}
-	while (board)
-	{
-		ai_plays(&board);
-		if (!board)
-		{
-			ft_putendl_fd(STDOUT_FILENO, "You are the winner! Congratulations! :)");
-			break ;
-		}
-		//board_print(board, graph);
-		player_plays(&board, fd);
-		if (!board)
-		{
-			ft_putendl_fd(STDOUT_FILENO, "You lost! :(");
-			break ;
-		}
-		//board_print(board, graph);
-	}
-	close(fd);
-	free_graph(graph);
+	play(graph);
+	if (fd != -1)
+		close(fd);
+	board = graph->board;
 	list_clear(&board);
+	free_graph(graph);
 	return (EXIT_SUCCESS);
 }

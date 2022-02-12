@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:42:15 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 12:52:56 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 23:07:28 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,17 @@ void	ft_putnbr(int nbr)
 	}
 }
 
+int	ft_memcmp(const void *s1, const void *s2, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (*((unsigned char *)(s1 + i)) != *((unsigned char *)(s2 + i)))
+			return (*((unsigned char *)(s1 + i))
+					- *((unsigned char *)(s2 + i)));
+		i++;
+	}
+	return (0);
+}

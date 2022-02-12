@@ -6,25 +6,32 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:16:59 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 19:16:09 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 23:12:13 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
 #include <stdlib.h>
 
-void player_plays(t_list **board, int fd)
+void player_plays(t_graph *graph)
 {
 	t_list *heap;
 	char	*line;
 	int	ask;
 
-	heap = list_last(*board);
+	heap = list_last(graph->board);
 	ask = 1;
 	while (ask)
 	{
 		ft_putendl_fd(STDOUT_FILENO, "Please choose between 1 and 3 items");
-		line = get_next_line(fd);
+		line = get_next_line(graph->fd);
+		if (ft_memcmp(line, "exit\n\0", 6) == 0)
+		{
+			close(graph->fd);
+			list_clear(&(graph->board));
+			free_graph(graph);
+			exit(EXIT_SUCCESS);
+		}
 		if (line && ft_strlen(line) == 2  && (line[0] > '0' && line[0] <= '3')
 			&& line[1] == '\n' && line[0] <= (heap->nbr + '0'))
 			ask = 0;
@@ -41,6 +48,6 @@ void player_plays(t_list **board, int fd)
 	}
 	heap->nbr -= line[0] - '0';
 	if (heap->nbr <= 0)
-		list_pop_back(board);
+		list_pop_back(&(graph->board));
 	free(line);
 }

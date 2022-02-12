@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 21:49:31 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/12 23:09:58 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ struct	s_graph
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	t_list		*board;
+	int		fd;
 };
+
+int play(t_graph *graph);
 
 // MAP
 int	fill_board(int fd, t_list **board);
@@ -44,7 +48,7 @@ int	fill_board(int fd, t_list **board);
 void ai_plays(t_list **board);
 
 // Player
-void player_plays(t_list **board, int fd);
+void player_plays(t_graph *graph);
 
 // Board
 void board_print(t_list *board, t_graph *graph, int x_baton, int y_baton);
@@ -61,6 +65,7 @@ void ft_putendl_fd(int fd, char *str);
 void ft_putnbr(int nbr);
 int ft_atoi(char *str);
 char *get_next_line(int fd);
+int	ft_memcmp(const void *s1, const void *s2, int n);
 
 // List utils
 void list_push_back(t_list **list, int nbr);

@@ -3,33 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   event.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 21:07:13 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 21:26:08 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/12 23:14:14 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
 #include "mlx.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-static int close_win(int keycode, t_graph *graph)
+int play(t_graph *graph)
 {
-	(void)keycode;
-	mlx_destroy_window(graph->mlx_ptr, graph->win_ptr);
+	static int	play = 1;
+
+	printf("on est ici\n");
+	if (play)
+	{
+		play = 0;
+		while (graph->board)
+		{
+			ai_plays(&(graph->board));
+			if (!(graph->board))
+			{
+				ft_putendl_fd(STDOUT_FILENO, "You are the winner! Congratulations! :)");
+				//mlx_loop_end(graph->mlx_ptr);
+				return (1);
+			}
+			//board_print(board, graph);
+			player_plays(graph);
+			if (!(graph->board))
+			{
+				ft_putendl_fd(STDOUT_FILENO, "You lost! :(");
+				//mlx_loop_end(graph->mlx_ptr);
+				return (1);
+			}
+			//board_print(board, graph);
+		}
+	}
 	return (0);
-}
-
-static int render(int keycode, t_graph *graph)
-{
-	(void)keycode;
-	(void)graph;
-	write(STDOUT_FILENO, "render", 6);
-	return (0);
-}
-
-void event_register(t_graph *graph)
-{
-	mlx_hook(graph->win_ptr, 33, (1L<<17), close_win, graph);
-	mlx_hook(graph->win_ptr, 15, (1L<<16), , graph);
 }
