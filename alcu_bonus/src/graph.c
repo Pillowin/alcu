@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:47:16 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/02/12 23:15:28 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 00:24:26 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_graph	*new_graph()
 		return (NULL);
 	}
 	graph->win_ptr = mlx_new_window(graph->mlx_ptr, WIDTH, HEIGTH, "ALCU BONUS");
-
+	graph->img = img_init(graph);
 	return (graph);
 }
 
@@ -42,7 +42,8 @@ void	draw_rectangle(t_graph *graph, int x_corner, int y_corner, int x_len, int y
 		x = 0;
 		while(x < x_len)
 		{
-			mlx_pixel_put(graph->mlx_ptr, graph->win_ptr, x_corner + x, y_corner + y, COLOR);
+			pixel_put(graph, x_corner + x, y_corner + y, COLOR);
+			//mlx_pixel_put(graph->mlx_ptr, graph->win_ptr, x_corner + x, y_corner + y, COLOR);
 			x++;
 		}
 		y++;
@@ -53,6 +54,7 @@ void	free_graph(t_graph *graph)
 {
 	if (graph)
 	{
+		mlx_destroy_image(graph->mlx_ptr, graph->img.id);
 		mlx_clear_window(graph->mlx_ptr, graph->win_ptr);
 		mlx_destroy_window(graph->mlx_ptr, graph->win_ptr);
 		mlx_destroy_display(graph->mlx_ptr);

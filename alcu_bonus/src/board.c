@@ -6,11 +6,12 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 22:18:49 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 00:02:23 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
+#include <stdio.h>
 
 void board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 {
@@ -38,4 +39,7 @@ void board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 		i++;
 		board = board->next;
 	}
+	fprintf(stderr, "put img %d\n",
+	mlx_put_image_to_window(graph->mlx_ptr, graph->win_ptr, graph->img.id, 0, 0));
+	img_clear(graph);
 }

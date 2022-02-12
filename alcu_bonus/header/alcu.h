@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 23:09:58 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 00:21:38 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,28 @@ struct s_list
 
 # define WIDTH 1000
 # define HEIGTH 1000
-# define COLOR 0xFF0000
+# define COLOR 0xE16861
+
+typedef struct s_img
+{
+	void	*id;
+	char	*data_addr;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}	t_img;
+
 typedef struct s_graph t_graph;
 struct	s_graph
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	t_img		img;
 	t_list		*board;
 	int		fd;
 };
 
-int play(t_graph *graph);
+int play(t_graph *graph, int x_baton, int y_baton);
 
 // MAP
 int	fill_board(int fd, t_list **board);
@@ -58,6 +69,11 @@ t_graph	*new_graph();
 void	draw_rectangle(t_graph *graph, int x_corner, int y_corner, int x_len, int y_len);
 void	free_graph(t_graph *graph);
 
+// Mlx
+t_img img_init(t_graph *graph);
+void img_clear(t_graph *graph);
+void	pixel_put(t_graph *graph, int x, int y, unsigned int color);
+
 // Utils
 size_t ft_strlen(char *str);
 void ft_putstr_fd(int fd, char *str);
@@ -75,7 +91,5 @@ t_list *list_last(t_list *list);
 int	list_max(t_list *list);
 int	ft_lstsize(t_list *lst);
 
-// Mlx
-void event_register(t_graph *graph);
 
 #endif
