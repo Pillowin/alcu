@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 12:55:42 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:40:54 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list	t_list;
+# define MAX_ITEMS 10000
 
+typedef struct s_list	t_list;
 struct s_list
 {
 	int		nbr;
@@ -52,5 +53,6 @@ void	list_pop_back(t_list **list);
 void	list_clear(t_list **list);
 int		list_max(t_list *list);
 t_list	*list_last(t_list *list);
+int		list_size(t_list *lst);
 
 #endif

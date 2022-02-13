@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 17:48:46 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:49:38 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define HEIGTH 1000
 # define COLOR 0xE16861
 # define AI_WAIT_TIME 350000
+# define MAX_ITEMS 100000
 
 typedef struct s_list	t_list;
 struct s_list
@@ -90,6 +91,6 @@ void	list_pop_back(t_list **list);
 void	list_clear(t_list **list);
 t_list	*list_last(t_list *list);
 int		list_max(t_list *list);
-int		ft_lstsize(t_list *lst);
+int		list_size(t_list *lst);
 
 #endif
