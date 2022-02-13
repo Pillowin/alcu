@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 17:14:07 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:16:38 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	board_fill(int fd, t_list **board)
 void	board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 {
 	int	items;
-	int	longest_line;
 	int	i;
 	int	j;
 	int	x_corner;
