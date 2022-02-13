@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:04:50 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 12:56:02 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 14:05:47 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@ void	list_pop_back(t_list **list)
 void	list_clear(t_list **list)
 {
 	t_list	*node;
-	t_list	*tmp;
+	void	*tmp;
 
+	if (!list)
+		return ;
 	node = *list;
 	while (node)
 	{
-		tmp = node->next;
-		free(node);
-		node = tmp;
+		tmp = node;
+		node = node->next;
+		free(tmp);
 	}
 	*list = NULL;
 }
