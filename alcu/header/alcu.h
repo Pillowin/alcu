@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 17:23:11 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:40:54 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list	t_list;
+# define MAX_ITEMS 10000
 
+typedef struct s_list	t_list;
 struct s_list
 {
 	int		nbr;
