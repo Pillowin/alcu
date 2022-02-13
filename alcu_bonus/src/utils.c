@@ -6,16 +6,16 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:42:15 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/12 23:07:28 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 15:35:38 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
 #include <unistd.h>
 
-size_t ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -23,12 +23,12 @@ size_t ft_strlen(char *str)
 	return (i);
 }
 
-void ft_putstr_fd(int fd, char *str)
+void	ft_putstr_fd(int fd, char *str)
 {
 	write(fd, str, ft_strlen(str));
 }
 
-void ft_putendl_fd(int fd, char *str)
+void	ft_putendl_fd(int fd, char *str)
 {
 	write(fd, str, ft_strlen(str));
 	write(fd, "\n", 1);
@@ -37,7 +37,7 @@ void ft_putendl_fd(int fd, char *str)
 int	ft_atoi(char *str)
 {
 	int	nbr;
-	int		i;
+	int	i;
 
 	nbr = 0;
 	i = 0;
@@ -48,9 +48,10 @@ int	ft_atoi(char *str)
 	}
 	return (nbr);
 }
+
 void	ft_putnbr(int nbr)
 {
-	char c;
+	char	c;
 
 	if (nbr == -2147483648)
 	{
