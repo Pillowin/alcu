@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:04:50 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:36:57 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 17:29:38 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,9 @@ int	list_max(t_list *list)
 	return (max);
 }
 
-int	ft_lstsize(t_list *lst)
+int	list_size(t_list *lst)
 {
 	if (lst == NULL)
 		return (0);
-	if (lst->next == NULL)
-		return (1);
-	return (1 + ft_lstsize(lst->next));
+	return (1 + list_size(lst->next));
 }

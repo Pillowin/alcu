@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 17:16:38 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:30:45 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,15 @@ int	board_fill(int fd, t_list **board)
 			list_push_back(board, nb);
 		free(line);
 		if (nb == -1 && fd == STDIN_FILENO)
+		{
+			if (list_size(*board) == 0)
+			{
+				list_clear(board);
+				ft_putendl_fd(STDERR_FILENO, "ERROR");
+				return (1);
+			}
 			return (0);
+		}
 		if ((nb > 0 && nb <= 10000) || nb == -1)
 			line = get_next_line(fd);
 		if (nb > 10000 || nb == 0 || (nb == -1 && line != NULL))
