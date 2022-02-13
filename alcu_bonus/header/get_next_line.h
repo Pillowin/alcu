@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plefevre <plefevre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:32:53 by plefevre          #+#    #+#             */
-/*   Updated: 2022/02/12 15:54:18 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 15:48:55 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_listbuf
-{
-	int					fd;
-	int					p;
-	int					res;
-	char				buff[BUFFER_SIZE];
-	struct s_listbuf	*next;
-}						t_list_buf;
-
-char		*get_next_line(int fd);
-char		*prolonge_malloc(char *s, int size);
-t_list_buf	*lst_new(int fd);
-t_list_buf	*lst_search(t_list_buf **list, int fd);
-void		lst_remove(t_list_buf **list, int fd);
+char	*ft_strndup(char *src, int size);
+char	*ft_concat(char *s1, char *s2);
+int		ft_strlen_gnl(char *str);
 
 #endif
