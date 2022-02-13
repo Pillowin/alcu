@@ -3,77 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plefevre <plefevre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:32:47 by plefevre          #+#    #+#             */
-/*   Updated: 2022/02/12 15:54:34 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 15:48:41 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-t_list_buf	*lst_new(int fd)
+int	ft_strlen_gnl(char *str)
 {
-	t_list_buf	*new;
+	int	i;
 
-	new = malloc(sizeof(*new));
-	if (!new)
+	if (str == NULL)
 		return (0);
-	new->fd = fd;
-	new->p = 0;
-	new->next = 0;
-	new->res = 0;
-	return (new);
-}
-
-t_list_buf	*lst_search(t_list_buf **list, int fd)
-{
-	t_list_buf	**l;
-
-	l = list;
-	while (*l)
-	{
-		if ((*l)->fd == fd)
-			return (*l);
-		l = &(*l)->next;
-	}
-	*l = lst_new(fd);
-	return (*l);
-}
-
-void	lst_remove(t_list_buf **list, int fd)
-{
-	t_list_buf	*l;
-
-	if (!list)
-		return ;
-	if ((*list)->fd == fd || fd == -1)
-	{
-		l = (*list)->next;
-		free(*list);
-		*list = l;
-		return ;
-	}
-	lst_remove(&((*list)->next), fd);
-}
-
-char	*prolonge_malloc(char *s, int size)
-{
-	int		i;
-	char	*ns;
-
-	if (!s)
-		return (malloc(size + 1));
 	i = 0;
-	while (s[i])
+	while (str[i])
 		i++;
-	ns = malloc(i + size + 1);
-	if (!ns)
-		return (0);
+	return (i);
+}
+
+char	*ft_strndup(char *src, int size)
+{
+	char		*dest;
+	int			i;
+
+	dest = malloc((size + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
 	i = -1;
-	while (s[++i])
-		ns[i] = s[i];
-	ns[i] = 0;
-	free (s);
-	return (ns);
+	while (++i < size)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_concat(char *s1, char *s2)
+{
+	int		lens1;
+	int		lens2;
+	char	*sfinal;
+	int		i;
+	int		j;
+
+	lens1 = ft_strlen_gnl(s1);
+	lens2 = ft_strlen_gnl(s2);
+	sfinal = malloc((lens1 + lens2 + 1) * sizeof(char));
+	if (sfinal == NULL)
+		return (NULL);
+	j = -1;
+	i = -1;
+	while (++i < lens1)
+		sfinal[++j] = s1[i];
+	i = -1;
+	while (++i < lens2)
+		sfinal[++j] = s2[i];
+	sfinal[++j] = '\0';
+	free(s1);
+	free(s2);
+	return (sfinal);
 }
