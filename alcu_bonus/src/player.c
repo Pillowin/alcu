@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:16:59 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 16:05:51 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:20:58 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	player_plays(t_graph *graph)
 		line = get_next_line(graph->fd);
 		if (ft_memcmp(line, "exit\n\0", 6) == 0)
 		{
+			free(line);
 			close(graph->fd);
 			list_clear(&(graph->board));
 			free_graph(graph);
