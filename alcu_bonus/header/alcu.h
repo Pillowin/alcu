@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 17:14:46 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:48:46 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ struct	s_graph
 	t_img	img;
 	t_list	*board;
 	int		fd;
-	int		max;
+	double	max;
 };
 
 // AI
@@ -59,7 +59,7 @@ void	ai_plays(t_list **board);
 void	player_plays(t_graph *graph);
 
 // Board
-void	board_print(t_list *board, t_graph *graph, int x_baton, int y_baton);
+void	board_print(t_list *board, t_graph *graph, double x_baton, double y_baton);
 int		board_fill(int fd, t_list **board);
 int		board_reset_fd(int fd);
 

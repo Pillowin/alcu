@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 17:16:38 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:47:22 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ int	board_fill(int fd, t_list **board)
 	return (0);
 }
 
-void	board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
+void	board_print(t_list *board, t_graph *graph, double x_baton, double y_baton)
 {
-	int	items;
-	int	i;
-	int	j;
-	int	x_corner;
-	int	y_corner;
-	int	x_decalage;
+	int		items;
+	int		i;
+	int		j;
+	double	x_corner;
+	double	y_corner;
+	double	x_decalage;
 
 	img_clear(graph);
 	i = 0;
@@ -86,7 +86,7 @@ void	board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 		x_decalage = x_baton * (graph->max - items);
 		while (j < items)
 		{
-			x_corner =  (2 * j + 0.05) * x_baton
+			x_corner =  (2 * (double) j + 0.05) * x_baton
 				+ WIDTH * 0.05
 				+ x_decalage;
 			draw_rectangle(graph, x_corner, y_corner,
