@@ -14,9 +14,6 @@ CC			=	cc
 
 CFLAGS		+=	-I$I
 CFLAGS		+=	-Wall -Wextra -Werror
-CFLAGS		+=	-g3 -fsanitize=address
-
-LDFLAGS		+=	-g3 -fsanitize=address
 
 RM			=	/bin/rm -f
 RMDIR		=	/bin/rm -Rf
