@@ -17,10 +17,8 @@ CC			=	cc
 CFLAGS		+=	-I$I
 CFLAGS		+=	-I$(MLX)
 CFLAGS		+=	-Wall -Wextra -Werror
-CFLAGS		+=	-g3 -fsanitize=address
 
 LDFLAGS		+=	-L$(MLX)
-LDFLAGS		+=	-g3 -fsanitize=address
 
 LIBS		= -lm -lmlx -lXext -lX11
 
