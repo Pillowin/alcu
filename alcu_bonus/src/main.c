@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:37 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:49:10 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:24:18 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	play(t_graph *graph)
 	x_baton = (WIDTH * 0.9) / (list_max(graph->board) * 2);
 	y_baton = (HEIGTH * 0.9) / ft_lstsize(graph->board);
 	board_print(graph->board, graph, x_baton, y_baton);
+	usleep(700000);
 	while (graph->board)
 	{
 		ai_plays(&(graph->board));
@@ -37,6 +38,7 @@ static void	play(t_graph *graph)
 			break ;
 		}
 		board_print(graph->board, graph, x_baton, y_baton);
+		usleep(700000);
 	}
 	close(graph->fd);
 	list_clear(&(graph->board));

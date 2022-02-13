@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:49:28 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:25:48 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	ft_putnbr(int nbr);
 int		ft_atoi(char *str);
 int		ft_memcmp(const void *s1, const void *s2, int n);
 char	*get_next_line(int fd);
+void	ft_bzero(void *s, size_t n);
 
 // List utils
 void	list_push_back(t_list **list, int nbr);

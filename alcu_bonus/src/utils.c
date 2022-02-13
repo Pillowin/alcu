@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:42:15 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:35:38 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:26:01 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,16 @@ int	ft_memcmp(const void *s1, const void *s2, int n)
 		i++;
 	}
 	return (0);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char *) s)[i] = '\0';
+		i++;
+	}
 }

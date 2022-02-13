@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 23:18:18 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:32:26 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:25:57 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,7 @@ t_img	img_init(t_graph *graph)
 
 void	img_clear(t_graph *graph)
 {
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < HEIGTH)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			pixel_put(graph, x, y, 0x000000);
-			x += 1;
-		}
-		y += 1;
-	}
+	ft_bzero(graph->img.data_addr, WIDTH * HEIGTH * 4);
 }
 
 void	pixel_put(t_graph *graph, int x, int y, unsigned int color)

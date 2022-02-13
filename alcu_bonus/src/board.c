@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:00:39 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:39:10 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:21:00 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 	int	y_corner;
 	int	x_decalage;
 
+	img_clear(graph);
 	longest_line = list_max(board);
 	i = 0;
 	while (board)
@@ -100,7 +101,6 @@ void	board_print(t_list *board, t_graph *graph, int x_baton, int y_baton)
 	}
 	mlx_put_image_to_window(graph->mlx_ptr, graph->win_ptr, graph->img.id,
 		0, 0);
-	img_clear(graph);
 }
 
 int	board_reset_fd(int fd)
