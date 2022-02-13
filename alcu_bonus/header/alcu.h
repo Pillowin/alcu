@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 16:25:48 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:09:56 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ struct	s_graph
 	t_img	img;
 	t_list	*board;
 	int		fd;
+	int		max;
 };
 
 // AI
