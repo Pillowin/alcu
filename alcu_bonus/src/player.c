@@ -6,12 +6,11 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:16:59 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:34:55 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:05:51 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
-#include <stdlib.h>
 
 void	player_plays(t_graph *graph)
 {

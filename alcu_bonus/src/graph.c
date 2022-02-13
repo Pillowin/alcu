@@ -6,12 +6,11 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 20:47:16 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/02/13 15:46:10 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:05:31 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
-#include <stdlib.h>
 
 t_graph	*new_graph(t_list *board, int fd)
 {

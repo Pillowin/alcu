@@ -6,12 +6,11 @@
 /*   By: agautier <agautier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 23:18:18 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:32:26 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:05:46 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
-#include <stdio.h>
 
 t_img	img_init(t_graph *graph)
 {

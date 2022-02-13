@@ -6,12 +6,11 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:42:15 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 15:35:38 by agautier         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:05:55 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alcu.h"
-#include <unistd.h>
 
 size_t	ft_strlen(char *str)
 {
