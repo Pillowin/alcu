@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 21:32:34 by agautier          #+#    #+#             */
-/*   Updated: 2022/02/13 16:25:48 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:08:01 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define WIDTH 1000
 # define HEIGTH 1000
 # define COLOR 0xE16861
+# define AI_WAIT_TIME 350000
 
 typedef struct s_list	t_list;
 struct s_list
